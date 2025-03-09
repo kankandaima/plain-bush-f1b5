@@ -55,7 +55,7 @@ export default function () {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 px-4">
       <div className="max-w-md mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-          Todo List
+          待办事项管理【爱吃饭】
         </h1>
 
         <Form method="post" className="mb-8 flex gap-2">
@@ -63,7 +63,7 @@ export default function () {
             type="text"
             name="text"
             className="flex-1 rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white shadow-sm px-4 py-2"
-            placeholder="Add a new todo..."
+            placeholder="输入内容"
           />
           <button
             type="submit"
@@ -71,7 +71,7 @@ export default function () {
             value="create"
             className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
           >
-            Add
+            确定
           </button>
         </Form>
 
@@ -98,6 +98,10 @@ export default function () {
                   </span>
                 </button>
               </Form>
+
+              <span className="text-sm text-gray-500">
+                Created at: {todo.chinaTime}
+              </span>
 
               <Form method="post">
                 <input type="hidden" name="id" value={todo.id} />
