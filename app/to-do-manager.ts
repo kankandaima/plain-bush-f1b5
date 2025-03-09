@@ -3,6 +3,7 @@ interface Todo {
   text: string;
   completed: boolean;
   createdAt: number;
+  chinaTime: string;
 }
 
 /**
@@ -42,11 +43,22 @@ export class TodoManager {
    * @returns Promise containing the newly created Todo item
    */
   async create(text: string): Promise<Todo> {
+    const chinaTime = new Intl.DateTimeFormat('zh-CN', {
+      timeZone: 'Asia/Shanghai',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    }).format(new Date());
+    
     const newTodo: Todo = {
       id: crypto.randomUUID(),
       text,
       completed: false,
       createdAt: Date.now(),
+      chinaTime,
     };
     const todos = await this.list();
     todos.push(newTodo);
