@@ -51,7 +51,7 @@ export class TodoManager {
     const todos = await this.list();
     todos.push(newTodo);
     await this.kv.put(this.todosKey, JSON.stringify(todos), {
-      expirationTtl: 300,
+      //expirationTtl: 300,
     });
     return newTodo;
   }
@@ -70,7 +70,7 @@ export class TodoManager {
     }
     todos[todoIndex].completed = !todos[todoIndex].completed;
     await this.kv.put(this.todosKey, JSON.stringify(todos), {
-      expirationTtl: 300,
+      //expirationTtl: 300,
     });
     return todos[todoIndex];
   }
@@ -84,7 +84,7 @@ export class TodoManager {
     const todos = await this.list();
     const newTodos = todos.filter((todo) => todo.id !== id);
     await this.kv.put(this.todosKey, JSON.stringify(newTodos), {
-      expirationTtl: 300,
+      //expirationTtl: 300,
     });
   }
 }
