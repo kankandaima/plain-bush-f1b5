@@ -100,7 +100,7 @@ export default function () {
               </Form>
 
               <span className="text-sm text-gray-500">
-                Created at: {todo.chinaTime}
+                日期/时间: {todo.chinaTime}
               </span>
 
               <Form method="post">
@@ -111,7 +111,7 @@ export default function () {
                   value="delete"
                   className="text-red-500 hover:text-red-700"
                 >
-                  Delete
+                  删除
                 </button>
               </Form>
             </li>
